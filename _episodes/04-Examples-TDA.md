@@ -235,6 +235,7 @@ plot_dendrogram(population_esc) ##plot dendrogram
 ~~~
 {: .language-python}
 
+
 <a href="../fig/tda_04_dendograma.png">
   <img src="../fig/tda_04_dendograma.png"" alt="Dendogram population_esc" />
 </a>
@@ -255,12 +256,13 @@ gd.plot_persistence_diagram(persistence_esc)
 ~~~
 {: .language-python}
 
+
 <a href="../fig/tda_04_barcode_esc.png">
-  <img src="../fig/tda_04_barcode_esc.png"" alt="Bacode population_esc" />
+  <img src="../fig/tda_04_barcode_esc.png" alt="Bacode population_esc" />
 </a>
 
 <a href="../fig/tda_04_persistence_esc.png">
-  <img src="../fig/tda_04_persistence_esc.png"" alt="Persistence diagram population_esc" />
+  <img src="../fig/tda_04_persistence_esc.png" alt="Persistence diagram population_esc" />
 </a>
 
 En estas plots pdemos observar que solo tenemos numeros de betti no cero, para $\beta_0$, es decir en esta poblacion que solo hay herencia vertical al aplicar homologia persistente no obtemos 1-hoyos.
@@ -289,7 +291,7 @@ plot_dendrogram(population_esc_hgt)
 {: .language-python}
 
 <a href="../fig/tda_04_dendograma_hgt.png">
-  <img src="../fig/tda_04_dendograma_hgt.png"" alt="Dendogram population with hgt" />
+  <img src="../fig/tda_04_dendograma_hgt.png" alt="Dendogram population with hgt" />
 </a>
 
 Ahora calculamos la matrix de hamming y la persistencia
@@ -324,11 +326,11 @@ gd.plot_persistence_diagram(persistence_esc_hgt)
 
 
 <a href="../fig/tda_04_barcode_esc_hgt.png">
-  <img src="../fig/tda_04_barcode_esc_hgt.png"" alt="Bacode population with hgt" />
+  <img src="../fig/tda_04_barcode_esc_hgt.png" alt="Bacode population with hgt" />
 </a>
 
 <a href="../fig/tda_04_persistence_esc_hgt.png">
-  <img src="../fig/tda_04_persistence_esc_hgt.png"" alt="Persistence diagram population with hgt" />
+  <img src="../fig/tda_04_persistence_esc_hgt.png" alt="Persistence diagram population with hgt" />
 </a>
 
 Tenemos 1-hoyo que nace para distancia 11 y desaparece 14. Ahora vizualicemos geometricamente el complejo simplicial para tiempo de filtracion 11
@@ -338,7 +340,7 @@ visualize_simplicial_complex(simplex_tree_esc_hgt,11)
 {: .language-python}
 
 <a href="../fig/tda_4_simplicial_esc_11.png">
-  <img src="../fig/tda_4_simplicial_esc_11.png"" alt="Persistence diagram population with hgt" />
+  <img src="../fig/tda_4_simplicial_esc_11.png" alt="Persistence diagram population with hgt" />
 </a>
 
 ### Example with data from Streptococuss
@@ -426,7 +428,7 @@ gd.plot_persistence_barcode(persistence3, legend=True)
 {: .language-python}
 
 <a href="../fig/tda_04_barcode_strep.png">
-  <img src="../fig/tda_04_barcode_strep.png"" alt="Bacode population with hgt" />
+  <img src="../fig/tda_04_barcode_strep.png" alt="Bacode population with hgt" />
 </a>
 
 ~~~
@@ -437,7 +439,7 @@ visualize_simplicial_complex(simplex_tree3,270,strains_names)
 {: .language-python}
 
 <a href="../fig/tda_04_simplicial_270">
-  <img src="../fig/tda_04_simplicial_270"" alt="Bacode population with hgt" />
+  <img src="../fig/tda_04_simplicial_270" alt="Bacode population with hgt" />
 </a>
 
 
@@ -519,283 +521,3 @@ gd.plot_persistence_diagram(persistence_libro,legend=True)
   <img src="../fig/tda_11_diagram_1.png" alt="Persistence Diagram" width="50%" height="auto" />
   </a>
 
-
-
-
-### Example 2: Genes
-In this example, we want to use Topological Data Analysis to detect if there is Horizontal Gene Transfer within this group of genomes.
-
-First, let's import the file `familias_mini.csv` which contains a table of gene presence and absence in 4 _Streptococcus_ genomes.
-~~~
-df = pd.read_csv("https://raw.githubusercontent.com/paumayell/topological-data-analysis/gh-pages/files/familias_minis.csv", index_col=0)
-
-df_filled = df.fillna(0)
-df=df_filled.replace(to_replace=r'.+', value=1, regex=True)
-df
-~~~
-{: .language-python}
-~~~
-	g_A909	g_2603V	g_515	g_NEM316
-A909|MGIDGNCP_01408	1	1	1	1
-A909|MGIDGNCP_00096	1	1	1	1
-A909|MGIDGNCP_01343	1	0	0	1
-A909|MGIDGNCP_01221	1	0	1	0
-A909|MGIDGNCP_01268	1	1	1	1
-A909|MGIDGNCP_00580	1	1	1	1
-A909|MGIDGNCP_00352	1	1	1	1
-A909|MGIDGNCP_00064	1	1	1	1
-A909|MGIDGNCP_00627	1	0	0	0
-A909|MGIDGNCP_01082	1	1	0	0
-A909|MGIDGNCP_00877	1	1	1	1
-A909|MGIDGNCP_00405	1	1	1	1
-2603V|GBPINHCM_00748	0	1	0	0
-2603V|GBPINHCM_01226	0	1	0	0
-515|LHMFJANI_01625	0	0	1	1
-~~~
-{: .output}
-
-Now we will use the file 'minigenomes_allig.fasta,' which contains the sequence of the previously aligned genomes, to build a phylogenetic tree among them.
-~~~
-url = "https://github.com/paumayell/topological-data-analysis/blob/gh-pages/files/minigenomes_allig.fasta"
-response = requests.get(url)
-response.raise_for_status()  # Check if any errors occurred during the download
-# Save the downloaded content to a local file
-with open("minigenomes_allig.fasta", "wb") as file:
-    file.write(response.content)
-sequences = list(SeqIO.parse("minigenomes_allig.fasta", "fasta"))
-# Rest of your code that uses the sequences
-alignment = MultipleSeqAlignment(sequences)
-# Calculate the distance matrix
-calculator = DistanceCalculator('identity')
-distance_matrix = calculator.get_distance(alignment)
-
-# Build the UPGMA tree
-constructor = DistanceTreeConstructor()
-upgma_tree = constructor.upgma(distance_matrix)
-
-# Draw the UPGMA tree
-draw(upgma_tree)
-~~~
-{: .language-python}
- <a href="../fig/tda_11_philo_tree.png">
-  <img src="../fig/tda_11_philo_tree.png" alt="Phylogenetic tree" width="50%" height="auto" />
-</a>
-
-The phylogenetic tree groups the genomes into pairs, which does help infer whether horizontal gene transfer occurred at some point during evolution among these species. Next, we will use persistent homology to try to detect this by identifying 1-hole structures.
-
-~~~
-matrix_distancia_genes=distancia(df)
-persistence_genes=complejo(matrix_distancia_genes)
-gd.plot_persistence_barcode(persistence_genes)
-~~~
-{: .language-python}
- <a href="../fig/tda_11_barcode_5.png">
-  <img src="../fig/tda_11_barcode_5.png" alt="Persistence Barcode" width="50%" height="auto" />
-</a>
-
-In the persistence barcode code, we did not detect any 1-hole structures. We can explore various strategies to try to detect this.
-
-### Select by triplets.
-We start select the first four genes and repeat the previous calculations.
-The first 4 rows of the DataFrame df are selected, and their pairwise distances are used to create a simplicial complex. The persistence of this complex is then computed, and a persistence barcode plot is generated to visualize the topological features and their lifespans.
-
-~~~
-# Select the first 4 rows of the DataFrame 'df' and assign it to 'df_primera'
-df_primera = df.iloc[:4, :]
-
-# Compute the distance matrix using the 'distancia' function on 'df_primera'
-matrix_distancia_genes_primera = distancia(df_primera)
-
-# Compute the persistence of the simplicial complex created from 'matrix_distancia_genes_primera'
-persistence_genes_primera = complejo(matrix_distancia_genes_primera)
-
-# Plot the persistence barcode using the 'plot_persistence_barcode' function from the Gudhi library
-gd.plot_persistence_barcode(persistence_genes_primera)
-
-~~~
-{: .language-python}
- <a href="../fig/tda_11_barcode_4.png">
-  <img src="../fig/tda_11_barcode_4.png" alt="Persistence Barcode" width="50%" height="auto" />
-</a>
-We can observe that we have a 1-hole, indicating the presence of horizontal gene transfer among our four genomes.
-
-Now, if we make another selection by taking the last four genes, we can observe the following:
-
-~~~
-df_segunda=df.iloc[-4:,:]
-df_segunda
-~~~
-{: .language-python}
-~~~
-	g_A909	g_2603V	g_515	g_NEM316
-A909|MGIDGNCP_00405	1	1	1	1
-2603V|GBPINHCM_00748	0	1	0	0
-2603V|GBPINHCM_01226	0	1	0	0
-515|LHMFJANI_01625	0	0	1	1
-~~~
-{: .output}
-~~~
-matrix_dintancia_genes_segunda=distancia(df_segunda)
-persistence_genes_segunda=complejo(matrix_dintancia_genes_segunda)
-gd.plot_persistence_barcode(persistence_genes_segunda)
-~~~
-{: .language-python}
- <a href="../fig/tda_11_barcode_5.png">
-  <img src="../fig/tda_11_barcode_5.png" alt="Persistence Barcode" width="50%" height="auto" />
-</a>
-
-In this selection, we do not detect this 1-hole.
-
-### The mediam complex
-~~~
-#crear un diccionario de cada genoma convertivo a "0" y "1" de presencia y auscnia de genes
-genomas = {}
-for columna in df.columns:
-    genomas[columna] = list(np.array(df[columna]))
-genomas
-~~~
-{: .language-python}
-~~~
-{'g_A909': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
- 'g_2603V': [1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0],
- 'g_515': [1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1],
- 'g_NEM316': [1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1]}
-~~~
-{: .output}
-
-~~~
-genomas_mediam=process_dict_elements(genomas)
-genomas_mediam
-~~~
-{: .language-python}
-~~~
-{'g_A909': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
- 'g_2603V': [1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0],
- 'g_515': [1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1],
- 'g_NEM316': [1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1],
- 'g_A909_g_2603V_g_515': [1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0],
- 'g_A909_g_2603V_g_NEM316': [1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0],
- 'g_A909_g_515_g_NEM316': [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1],
- 'g_2603V_g_515_g_NEM316': [1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1]}
-~~~
-{: .output}
-
-
-~~~
-df_mediam = pd.DataFrame.from_dict(genomas_mediam)
-df_mediam
-~~~
-{: .language-python}
-~~~
-	g_A909_g_2603V_g_NEM316	g_A909_g_515_g_NEM316	g_2603V_g_515_g_NEM316
-0	1	1	1
-1	1	1	1
-2	1	1	0
-3	0	1	0
-~~~
-{: .output}
-
-~~~
-matrix_dintancia_extendida=distancia(df_mediam)
-persistence_extendida=complejo(matrix_dintancia_extendida)
-matrix_dintancia_extendida
-~~~
-{: .language-python}
-~~~
-array([[0.        , 0.33333333, 0.26666667, 0.26666667, 0.13333333,
-        0.13333333, 0.2       , 0.33333333],
-       [0.33333333, 0.        , 0.33333333, 0.33333333, 0.2       ,
-        0.2       , 0.4       , 0.26666667],
-       [0.26666667, 0.33333333, 0.        , 0.13333333, 0.13333333,
-        0.26666667, 0.06666667, 0.06666667],
-       [0.26666667, 0.33333333, 0.13333333, 0.        , 0.26666667,
-        0.13333333, 0.06666667, 0.06666667],
-       [0.13333333, 0.2       , 0.13333333, 0.26666667, 0.        ,
-        0.13333333, 0.2       , 0.2       ],
-       [0.13333333, 0.2       , 0.26666667, 0.13333333, 0.13333333,
-        0.        , 0.2       , 0.2       ],
-       [0.2       , 0.4       , 0.06666667, 0.06666667, 0.2       ,
-        0.2       , 0.        , 0.13333333],
-       [0.33333333, 0.26666667, 0.06666667, 0.06666667, 0.2       ,
-        0.2       , 0.13333333, 0.        ]])
-~~~
-{: .output}
-
-~~~
-gd.plot_persistence_barcode(persistence_extendida)
-~~~
-{: .language-python}
- <a href="../fig/tda_11_barcode_3.png">
-  <img src="../fig/tda_11_barcode_3.png" alt="Persistence Barcode" width="50%" height="auto" />
-</a>
-
-~~~
-gd.plot_persistence_diagram(persistence_extendida,legend=True)
-~~~
-{: .language-python}
- <a href="../fig/tda_11_diagram_3.png">
-  <img src="../fig/tda_11_diagram_3.png" alt="Persistence Diagram" width="50%" height="auto" />
-</a>
-
-## Method 2
-
-This code attempts to generate a pangenome with an specified percentage of core/shell/cloud gene families. Neverthelles caiution is recommended because in a real pangenome, data should have more hierarchical structure. This is temporary data to exemplify TDA concepts.
-~~~
-import pandas as pd
-import numpy as np
-import random
-
-import warnings
-
-warnings.filterwarnings("ignore")  # Deactivate Python warnings
-
-m =5 # The number of genomes (Cols)
-n = 10  # Specify the number of genes (rows)
-shellsize=int(m/2)+1
-
-core = 0.3  # Probability of being core filling a row with ones
-shell = 0.6  # Probability of being shell filling the remaining zeros with ones
-cloud =1-core-shell
-
-# Create an empty DataFrame
-# Create an empty DataFrame
-df = pd.DataFrame(columns=[f'Column{i+1}' for i in range(m)])
-
-
-# Fill each row with ones based on probabilities P1 and P2
-for _ in range(n):
-    P1=random.random()  # Generate a random value between 0 and 1
-
-    #print("P1",P1)
-    if (core>1-P1): 
-      row = [1] * m
-      #print("core",row)
-  
-    elif(core+shell>1-P1): 
-        #If the row is not already filled with ones, randomly distribute m/2 ones based on P2
-        genome_row = np.random.choice([shellsize, m-1])  # Fill the row with ones based on P1
-        #print("number of genomes in which this family is present",genome_row)
-        # Create an empty list representing the row
-        row = [0] * m
-        # Generate k unique random indices
-        indices = random.sample(range(m), genome_row)
-        # Set the values at the random indices to 1
-        for index in indices:
-          row[index] = 1
-        #print("shell",row)
-    else:
-        row = [0] * m
-        num_ones = 1  # Calculate the number of ones to distribute
-        # Choose a random index within the row
-        random_index = random.randint(0, m - 1)
-        #print("rNDOM INDEX", random_index)  
-        # Set the value at the random index to 1
-        row[random_index] = 1
-        #print("cloud",row)
-
-    # row van a ser las columnas del dataframe
-    df = df.append(pd.Series(row, index=df.columns), ignore_index=True)  # Append the row to the DataFrame
-
-print(df)
-~~~
-{: .python}
