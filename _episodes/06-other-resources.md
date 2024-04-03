@@ -14,7 +14,7 @@ keypoints:
 [Giotto-TDA](https://giotto-ai.github.io/gtda-docs/0.5.1/library.html) is a Python toolbox for TDA. This tool does not accept point clouds or generate barcodes. However, it can store all the information from a barcode in a variable for later plotting using another tool.
 
 ### R: tdaverse
-The [tdaverse]() repository contains a list of R tools for performing TDA. The packages simplextree, ripserr, and ggtda can carry out almost the same functions as the GUDHI package presented in the episodes.
+The [tdaverse](https://github.com/tdaverse/tdaverse) repository contains a list of R tools for performing TDA. The packages simplextree, ripserr, and ggtda can carry out almost the same functions as the GUDHI package presented in the episodes.
 
 
 ## Wrap up
