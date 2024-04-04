@@ -129,83 +129,62 @@ def plot_dendrogram(data):
 The `visualize_simplicial_complex` function creates a graphical representation of a simplicial complex for a given filtration level, based on a simplex tree.
 
 ~~~
-def visualize_simplicial_complex(simplex_tree, filtration_value, vertex_names=None, save_filename=None, plot_size=1, dpi=600, pos=None, seed=None):
+def visualize_simplicial_complex(simplex_tree, filtration_value, vertex_names=None, save_filename=None, plot_size=1, dpi=600, pos=None):
     G = nx.Graph()
-    triangles = []
-    color_map = plt.get_cmap('coolwarm')
-
-    # Fijar la semilla del generador de números aleatorios si se proporciona
-    if seed is not None:
-        random.seed(seed)
-        nx.set_edge_attributes(G, seed, 'seed')
-
-    # Create a dictionary to map simplices to colors based on their filtration values
-    simplex_colors = {}
-    max_filtration = max(filt for _, filt in simplex_tree.get_filtration() if filt <= filtration_value)
-
+    triangles = []  # List to store triangles (3-nodes simplices)
+    
     for simplex, filt in simplex_tree.get_filtration():
         if filt <= filtration_value:
-            normalized_value = filt / max_filtration
-            color = color_map(normalized_value)
-            rgba_color = 'rgba({}, {}, {}, {})'.format(int(color[0]*255), int(color[1]*255), int(color[2]*255), color[3])
-            simplex_colors[tuple(simplex)] = rgba_color
-
             if len(simplex) == 2:
                 G.add_edge(simplex[0], simplex[1])
             elif len(simplex) == 1:
                 G.add_node(simplex[0])
             elif len(simplex) == 3:
                 triangles.append(simplex)
-
-    # Calcular posiciones de los nodos si no se han proporcionado
+    
+    # Calculate node positions if not provided
     if pos is None:
-        pos = nx.spring_layout(G, seed=seed)
-
+        pos = nx.spring_layout(G)
+    
     # Node trace
-    x_values = [pos[key][0] for key in pos]
-    y_values = [pos[key][1] for key in pos]
-    node_labels = [vertex_names[node] if vertex_names else node for node in pos]
-    #node_trace = go.Scatter(x=x_values, y=y_values, mode='markers+text', hoverinfo="text", marker=dict(size=10), text=node_labels, textposition='top center')
-    node_trace = go.Scatter(x=x_values, y=y_values, mode='markers+text', hoverinfo="text",marker=dict(size=14), text=node_labels, textposition='top center', textfont=dict(size=14))
-
+    x_values, y_values = zip(*[pos[node] for node in G.nodes()])
+    node_labels = [vertex_names[node] if vertex_names else str(node) for node in G.nodes()]
+    node_trace = go.Scatter(x=x_values, y=y_values, mode='markers+text', hoverinfo='text', marker=dict(size=14), text=node_labels, textposition='top center', textfont=dict(size=14))
     
     # Edge traces
     edge_traces = []
     for edge in G.edges():
         x0, y0 = pos[edge[0]]
         x1, y1 = pos[edge[1]]
-        color = simplex_colors.get(edge, 'rgba(0, 0, 0, 0.5)')  # Default color if edge not in simplex_colors
-        edge_trace = go.Scatter(x=[x0, x1, None], y=[y0, y1, None], mode='lines', line=dict(width=3, color=color))
+        edge_trace = go.Scatter(x=[x0, x1, None], y=[y0, y1, None], mode='lines', line=dict(width=3, color='rgba(0,0,0,0.5)'))
         edge_traces.append(edge_trace)
-
-        # Triangle traces
+    
+    # Triangle traces
     triangle_traces = []
     for triangle in triangles:
         x0, y0 = pos[triangle[0]]
         x1, y1 = pos[triangle[1]]
         x2, y2 = pos[triangle[2]]
-    # Utilizando el nuevo color RGBA para los triángulos
-        color = 'rgba(244, 157, 126, 0.545)'  # Color #F49D7E en formato RGBA
-        triangle_trace = go.Scatter(x=[x0, x1, x2, x0, None], y=[y0, y1, y2, y0, None], fill='toself', mode='lines', line=dict(width=3), fillcolor=color)
+        triangle_trace = go.Scatter(x=[x0, x1, x2, x0, None], y=[y0, y1, y2, y0, None], fill='toself', mode='lines+markers', line=dict(width=2), fillcolor='rgba(255,0,0,0.2)')
         triangle_traces.append(triangle_trace)
-
-    # Combine all traces and create the figure
-
-    layout = go.Layout(showlegend=False, hovermode='closest', xaxis=dict(showgrid=False, zeroline=False,tickfont=dict(size=16, family='Arial, sans-serif') ), yaxis=dict(showgrid=False, zeroline=False,tickfont=dict(size=16, family='Arial, sans-serif')))
-
+    
+    # Configure the layout of the plot
+    layout = go.Layout(showlegend=False, hovermode='closest', xaxis=dict(showgrid=False, zeroline=False, tickfont=dict(size=16, family='Arial, sans-serif')), yaxis=dict(showgrid=False, zeroline=False, tickfont=dict(size=16, family='Arial, sans-serif')))
+    
     fig = go.Figure(data=edge_traces + triangle_traces + [node_trace], layout=layout)
-
+    
     # Set the figure size
     fig.update_layout(width=plot_size * dpi, height=plot_size * dpi)
-
+    
     # Save the figure if a filename is provided
     if save_filename:
         pio.write_image(fig, save_filename, width=plot_size * dpi, height=plot_size * dpi, scale=1)
-
+    
     # Show the figure
     fig.show()
 
     return G
+
 ~~~
 {: .language-python}
 
