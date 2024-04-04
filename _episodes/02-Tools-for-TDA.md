@@ -271,7 +271,7 @@ First, we create a Rips complex using the `RipsComplex` class from `gudhi`. The 
 ~~~
 %%time
 # Create a Rips complex with a maximum edge length of 0.6
-Rips_complex = gd.RipsComplex(circles, max_edge_length=0.6)
+Rips_complex = gd.RipsComplex(points = circles, max_edge_length=0.6)
 ~~~
 {: .language-python}
 
