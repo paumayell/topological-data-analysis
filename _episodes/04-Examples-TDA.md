@@ -126,7 +126,7 @@ def plot_dendrogram(data):
 {: .language-python}
 
 
-The visualize_simplicial_complex function creates a graphical representation of a simplicial complex for a given filtration level, based on a simplex tree.
+The `visualize_simplicial_complex` function creates a graphical representation of a simplicial complex for a given filtration level, based on a simplex tree.
 
 ~~~
 def visualize_simplicial_complex(simplex_tree, filtration_value, vertex_names=None, save_filename=None, plot_size=1, dpi=600, pos=None, seed=None):
@@ -209,7 +209,7 @@ def visualize_simplicial_complex(simplex_tree, filtration_value, vertex_names=No
 ~~~
 {: .language-python}
 
-Procedemos a cargar un arreglo numpy, llamado population_esc, el cual contiene un resistoma de una poblacion con 8 genomas, simulada a partir de un genoma  con tres genearciones y en cada generacion un genoma tiene 2 hijos, el numero total de genes es de 505, y el porcentaje inicial de 1 es 25%, y la tasa de ganancia de genes en cada generacion es 1/505.
+Next, we proceed to load a numpy array, named population_esc, which contains a resistome of a population with 8 genomes, simulated from a genome with three generations, and in each generation, one genome has 2 offspring. The total number of genes is 505, the initial percentage of 1s is 25%, and the gene gain rate in each generation is 1/505.
 
 
 
@@ -228,7 +228,7 @@ array([[0, 1, 0, ..., 0, 1, 0],
        [0, 1, 0, ..., 0, 1, 0]])
 ~~~
 {: .output}
-calculamos su matriz de distancia usando la funcion calculate_hamming_matrix, con el siguiente comando
+We calculate its distance matrix using the `calculate_hamming_matrix` function with the following command:
 ~~~
 hamming_distance_matrix_esc= calculate_hamming_matrix(population_esc) #calculate hamming matrix
 plot_dendrogram(population_esc) ##plot dendrogram
@@ -237,11 +237,11 @@ plot_dendrogram(population_esc) ##plot dendrogram
 
 
 <a href="../fig/tda_04_dendograma.png">
-  <img src="../fig/tda_04_dendograma.png"" alt="Dendogram population_esc" />
+  <img src="../fig/tda_04_dendograma.png" alt="Dendogram population_esc" />
 </a>
 
 
-Ahora veamos que esta poblacion, que solo tiene herencia vertical, no posee hoyos.  Para ello usamos la funcion que creamos create_complex para calcular la persitencia y el simplex tree.
+Now, let's observe that this population, which only has vertical inheritance, does not have holes. For this purpose, we use the function we created, `create_complex`, to calculate persistence and the simplex tree.
 
 ~~~
 # Create a Vietoris-Rips complex from the distance matrix, and compute persistent homology.
@@ -249,7 +249,7 @@ persistence_esc, simplex_tree_esc = create_complex(hamming_distance_matrix_esc)
 ~~~
 {: .language-python}
 
-Ahora gragicamos el codigo de barras y el diagrama de persistencia
+Now, let's visualize the barcode and the persistence diagram.
 ~~~
 gd.plot_persistence_barcode(persistence_esc)
 gd.plot_persistence_diagram(persistence_esc)
@@ -265,9 +265,9 @@ gd.plot_persistence_diagram(persistence_esc)
   <img src="../fig/tda_04_persistence_esc.png" alt="Persistence diagram population_esc" />
 </a>
 
-En estas plots pdemos observar que solo tenemos numeros de betti no cero, para $\beta_0$, es decir en esta poblacion que solo hay herencia vertical al aplicar homologia persistente no obtemos 1-hoyos.
+In these plots, we can observe that we only have non-zero Betti numbers for $\beta_0$, indicating that in this population, which only has vertical inheritance, applying persistent homology does not yield 1-holes.
 
-Ahora, queremos aplicar la homologia persistente a una poblacion que tenga transferncia horizontal. Para ello primero importamos population_esc_hgt, en la cual simulamos la transferencia horizontal entre un grupo de 3 genomas que se comparten una ventana de 15 genes.
+Now, we want to apply persistent homology to a population that includes horizontal gene transfer. To do this, we first import population_esc_hgt, in which we simulated horizontal transfer among a group of 3 genomes sharing a window of 15 genes.
 ~~~
 population_esc_hgt = np.load('/home/jupyter-shaday/GIT/TDA_Horizontal_Genes_Transfer/Notebooks/population_esc_hgt.npy')
 population_esc_hgt
@@ -284,7 +284,7 @@ array([[0, 1, 0, ..., 0, 1, 0],
 ~~~
 {: .output}
 
-ahora el cladograma queda de la siguiente forma
+Now the cladogram looks like this:
 ~~~
 plot_dendrogram(population_esc_hgt)
 ~~~
@@ -294,7 +294,7 @@ plot_dendrogram(population_esc_hgt)
   <img src="../fig/tda_04_dendograma_hgt.png" alt="Dendogram population with hgt" />
 </a>
 
-Ahora calculamos la matrix de hamming y la persistencia
+Now let's calculate the Hamming matrix and persistence.
 
 
 ~~~
@@ -317,7 +317,7 @@ persistence_esc_hgt
 ~~~
 {: .output}
 
-Podemos ver que en la persistencia aparece uno de dimension uno. Veamos ahora la representacion grafica.
+We can see that persistence includes a dimension one. Now, let's visually represent the simplicial complex for a filtration time of 11.
 ~~~
 gd.plot_persistence_barcode(persistence_esc_hgt)
 gd.plot_persistence_diagram(persistence_esc_hgt)
@@ -333,7 +333,7 @@ gd.plot_persistence_diagram(persistence_esc_hgt)
   <img src="../fig/tda_04_persistence_esc_hgt.png" alt="Persistence diagram population with hgt" />
 </a>
 
-Tenemos 1-hoyo que nace para distancia 11 y desaparece 14. Ahora vizualicemos geometricamente el complejo simplicial para tiempo de filtracion 11
+We have a 1-hole that is born at a distance of 11 and disappears at 14. Now, let's geometrically visualize the simplicial complex for a filtration time of 11.
 ~~~
 visualize_simplicial_complex(simplex_tree_esc_hgt,11)
 ~~~
@@ -461,7 +461,7 @@ Gen2	0	0	1	1
 ~~~
 {: .output}
 
-The distancia function takes a DataFrame df and an optional parameter metrica (defaulting to 'hamming').
+The `distancia` function takes a DataFrame df and an optional parameter metrica (defaulting to 'hamming').
 
 The resulting distance_matrix can be used for further analysis, such as clustering or dimensionality reduction, to explore the relationships and similarities between the variables/columns of the DataFrame. 
 ~~~
