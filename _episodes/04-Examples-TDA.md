@@ -184,7 +184,6 @@ def visualize_simplicial_complex(simplex_tree, filtration_value, vertex_names=No
     fig.show()
 
     return G
-
 ~~~
 {: .language-python}
 
@@ -336,15 +335,15 @@ df_transposed_new
 ~~~
 {: .language-python}
 ~~~
-aro	3000005	3000010	3000013	3000024	3000025	3000026	3000074	3000090	3000118	3000124	...	3007539	3007637	3007644	3007645	3007650	3007662	3007669	3007671	3007678	3007682
-agalactiae_18RS21	1	1	1	1	1	1	1	1	1	1	...	1	0	1	1	1	1	1	1	1	1
-agalactiae_2603V	1	1	1	1	1	1	1	1	1	1	...	1	0	1	1	1	0	1	1	1	1
-agalactiae_515	1	0	1	1	1	1	1	1	1	1	...	1	0	1	1	1	0	1	1	1	1
-agalactiae_A909	1	1	1	0	1	1	1	1	1	1	...	1	0	1	1	1	0	1	1	1	1
-agalactiae_CJB111	1	0	1	0	1	1	1	1	1	1	...	1	1	1	1	1	1	1	1	1	1
-agalactiae_COH1	1	0	1	1	1	1	1	1	1	1	...	1	0	1	1	1	0	1	1	1	1
-agalactiae_H36B	1	1	1	1	1	1	1	1	1	1	...	1	0	1	1	1	1	1	1	1	1
-agalactiae_NEM316	1	0	1	0	1	1	1	1	1	1	...	1	0	1	1	1	0	1	1	1	1
+aro	3000005	3000010	3000013	3000024	3000025	3000026	3000074	3000090	3000118	3000124
+agalactiae_18RS21	1	1	1	1	1	1	1	1	1	1
+agalactiae_2603V	1	1	1	1	1	1	1	1	1	1
+agalactiae_515	1	0	1	1	1	1	1	1	1	1
+agalactiae_A909	1	1	1	0	1	1	1	1	1	1
+agalactiae_CJB111	1	0	1	0	1	1	1	1	1	1
+agalactiae_COH1	1	0	1	1	1	1	1	1	1	1
+agalactiae_H36B	1	1	1	1	1	1	1	1	1	1
+agalactiae_NEM316	1	0	1	0	1	1	1	1	1	1
 8 rows × 1443 columns
 ~~~
 {: .output}
