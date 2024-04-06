@@ -18,7 +18,6 @@ Horizontal gene transfer (HGT) is a process through which organisms transfer gen
 
 HGT is crucial in the rapid spread of antibiotic-resistant genes among bacteria, enabling them to quickly adapt to new environments and survive in the presence of antibiotics. Antibiotic resistance genes can be located on plasmids, small DNA molecules that can be easily transferred between bacteria, accelerating the spread of resistance. The horizontal transfer of antibiotic-resistance genes poses a significant challenge to global public health. It leads to the development and spread of "superbugs" resistant to multiple antibiotics, complicating the treatment of common infections and increasing mortality.
 
-
 > ## Know more: Mechanisms of HGT
 > 
 > >## Extra content
@@ -31,25 +30,22 @@ HGT is crucial in the rapid spread of antibiotic-resistant genes among bacteria,
 >{: .solution}  
 {: .callout}  
 
+
+## Understanding Persistent Homology in the Context of HGT:
 Topological data analysis (TDA), in particular persistent homology, allows for 
 identifying complex patterns and structures in large genomic datasets, 
 facilitating the detection of HGT of antibiotic resistance genes. 
 
-## Understanding Persistent Homology in the Context of HGT:
-- In a population experiencing only horizontal gene transfer, persistent homology applied to genomic data reveals a notable pattern: we observe non-empty homology only at $ \H_0 $, indicating the presence of connected components in the barcode diagram. This is expected because HGT tends to link different genomes, thereby increasing connectivity without necessarily creating higher-dimensional holes.
+Hierarchical data does not have holes in higger dimensions when represented 
+with a Vietoris Rips complex. A population not experiencing horizontal gene transfer
+and where no mutations are allowed in the same site show non-empty homology only at $ \H_0 $.
+Remember, $ \H_0 $ in the barcode diagram indicates the presence of connected components.
 
-**Case Study 1: Vertical Inheritance Simulation:**
-- We simulate a bacterial population's evolution with exclusively vertical gene transfer (inheritance from parent to offspring). Applying persistent homology to this simulation, we expect a barcode diagram predominantly showing connected components ($ \H_0 $), with little to no evidence of higher-dimensional features. This serves as a baseline for understanding the impact of vertical inheritance on genomic data topology.
+> ## Know more: TDA in genomics
+> To learn more about applications of TDA in genomics consult the Rabadan book [Topological Data Analysis for Genomics](https://www.amazon.com.mx/Topological-Data-Analysis-Genomics-Evolution/dp/1107159547) 
+{: .callout}  
 
-**Case Study 2: Introducing Horizontal Gene Transfer:**
-- We then introduce a horizontal gene transfer event within a subgroup of this population and apply TDA to analyze the resulting genomic data. The introduction of HGT is expected to manifest as 1-dimensional holes ($ \H_1 $) in the barcode diagram, distinct from the baseline scenario. These 1-holes indicate the presence of loops or cycles within the data, directly correlating to the HGT events, as they disrupt the simple connectivity pattern seen with vertical inheritance.
-
-**Illustrating HGT with Persistent Homology:**
-- To visualize this concept, we'll show an example involving a population of eight *Streptococcus* genomes. Initially, we simulate their evolution with only vertical gene transfer and apply persistent homology, showcasing the barcode diagram that highlights connected components. Next, we simulate HGT events between some of these *Streptococcus* genomes, apply TDA, and observe the emergence of 1-holes in the barcode diagram. This visual and analytical comparison illustrates how HGT introduces complexity into the genomic landscape, detectable through TDA.
-
-By employing TDA and persistent homology, we gain a powerful lens through which to observe and understand the impact of HGT on bacterial genomes. This approach not only underscores the utility of TDA in genomic research but also highlights its potential to uncover intricate gene transfer patterns critical for understanding bacterial evolution and antibiotic resistance.
-
-
+Here we will study three study cases, first, we will show persistent homology in vertical inheritance, then we will study a simulation of Horizontal Gene Transfer, and finally, we will study the persistent homology of the resistant genes from *Streptococcus agalactiae* that we obtained in the lesson []()
 
 ### **Library**
 To begin, we will import the necessary packages.
@@ -175,9 +171,17 @@ def visualize_simplicial_complex(simplex_tree, filtration_value, vertex_names=No
     return G
 ~~~
 {: .language-python}
+
+
+## Case Study 1: Vertical Inheritance Simulation:
+- We simulate a bacterial population's evolution with exclusively vertical gene transfer (inheritance from parent to offspring). Applying persistent homology to this simulation, we expect a barcode diagram predominantly showing connected components ($ \H_0 $), with little to no evidence of higher-dimensional features. This serves as a baseline for understanding the impact of vertical inheritance on genomic data topology.
+
+
 ### **Example with a simulated population**
 Next, we proceed to load a numpy array, named population_esc, which contains a resistome of a population with 8 genomes, simulated from a genome with three generations, and in each generation, one genome has 2 offspring. The total number of genes is 505, the initial percentage of 1s is 25%, and the gene gain rate in each generation is 1/505.
 
+**Case Study 2: Introducing Horizontal Gene Transfer:**
+- We then introduce a horizontal gene transfer event within a subgroup of this population and apply TDA to analyze the resulting genomic data. The introduction of HGT is expected to manifest as 1-dimensional holes ($ \H_1 $) in the barcode diagram, distinct from the baseline scenario. These 1-holes indicate the presence of loops or cycles within the data, directly correlating to the HGT events, as they disrupt the simple connectivity pattern seen with vertical inheritance.
 
 
 ~~~
@@ -316,6 +320,14 @@ visualize_simplicial_complex(simplex_tree_esc_hgt,11)
 <a href="../fig/tda_4_simplicial_esc_11.png">
   <img src="../fig/tda_4_simplicial_esc_11.png" alt="Persistence diagram population with hgt" />
 </a>
+
+
+**Illustrating HGT with Persistent Homology:**
+- To visualize this concept, we'll show an example involving a population of eight *Streptococcus* genomes. Initially, we simulate their evolution with only vertical gene transfer and apply persistent homology, showcasing the barcode diagram that highlights connected components. Next, we simulate HGT events between some of these *Streptococcus* genomes, apply TDA, and observe the emergence of 1-holes in the barcode diagram. This visual and analytical comparison illustrates how HGT introduces complexity into the genomic landscape, detectable through TDA.
+
+By employing TDA and persistent homology, we gain a powerful lens through which to observe and understand the impact of HGT on bacterial genomes. This approach not only underscores the utility of TDA in genomic research but also highlights its potential to uncover intricate gene transfer patterns critical for understanding bacterial evolution and antibiotic resistance.
+
+
 
 ### **Example with data from Streptococuss**
 
