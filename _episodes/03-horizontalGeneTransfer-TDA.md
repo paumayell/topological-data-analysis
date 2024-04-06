@@ -200,7 +200,7 @@ The total number of genes is 505, the initial percentage of 1s
 is 25%, and the gene gain rate in each generation is 1/505.
 
 ~~~
-population_esc = np.load('/home/jupyter-shaday/GIT/TDA_Horizontal_Genes_Transfer/Notebooks/population_esc.npy')
+population_esc = np.load('https://github.com/carpentries-incubator/topological-data-analysis/raw/gh-pages/files/population_esc.npy')
 population_esc
 ~~~
 {: .language-python}
@@ -214,6 +214,7 @@ array([[0, 1, 0, ..., 0, 1, 0],
        [0, 1, 0, ..., 0, 1, 0]])
 ~~~
 {: .output}
+
 We calculate its distance matrix using the `calculate_hamming_matrix` function with the following command:
 ~~~
 hamming_distance_matrix_esc= calculate_hamming_matrix(population_esc) #calculate hamming matrix
@@ -226,10 +227,8 @@ plot_dendrogram(population_esc) ##plot dendrogram
   <img src="../fig/tda_04_dendograma.png" alt="Dendogram population_esc" />
 </a>
 
-
 Let's observe that this population, which only has vertical inheritance, does not have holes. 
 For this purpose, we use the function we created, `create_complex`, to calculate persistence and the simplex tree.
-
 ~~~
 # Create a Vietoris-Rips complex from the distance matrix, and compute persistent homology.
 persistence_esc, simplex_tree_esc = create_complex(hamming_distance_matrix_esc)
@@ -257,19 +256,19 @@ indicating that in this population, which only has vertical inheritance,
 applying persistent homology does not yield 1-holes.
 
 ## Case Study 2: Introducing Horizontal Gene Transfer:
-Now we introduce a horizontal gene transfer event in the simulation.
+Now, we introduce a horizontal gene transfer event in the simulation.
 within a subgroup of this population and apply TDA to analyze the resulting genomic data. 
 The introduction of HGT is expected to manifest as 1-dimensional holes ($ H_1 $)
 in the barcode diagram, distinct from the baseline scenario. 
 These 1-holes indicate the presence of loops or cycles within the data, 
 directly correlating to the HGT events, as they disrupt the simple 
-connectivity pattern seen with vertical inheritance.
+connectivity pattern observed with vertical inheritance.
 
 To apply persistent homology to a population that includes horizontal gene 
 transfer we first import population_esc_hgt, in which we simulated horizontal 
 transfer among a group of 3 genomes sharing a window of 15 genes.
 ~~~
-population_esc_hgt = np.load('/home/jupyter-shaday/GIT/TDA_Horizontal_Genes_Transfer/Notebooks/population_esc_hgt.npy')
+population_esc_hgt = np.load('https://github.com/carpentries-incubator/topological-data-analysis/raw/gh-pages/files/population_esc_hgt.npy')
 population_esc_hgt
 ~~~
 {: .language-python}
