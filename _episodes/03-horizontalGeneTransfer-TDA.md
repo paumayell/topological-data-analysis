@@ -5,9 +5,9 @@ exercises: 15
 questions:
 - "How can I detect HGT with TDA?"
 objectives:
+- "Understand hierarchical data  does not have 1-holes"
 - "Compute the Hamming matrix for applying Persistent Homology."
-- "Construct a median complex to detect 1-holes"
-- "Entender que lo árboles jerárquicos no tienen 1-holes"
+
 keypoints:
 - "Horizontal Gene Transfer (HGT) is a phenomenon where an organism transfers genetic material to another one that is not its descendant."
 - "1-holes can detect HGT."
@@ -21,22 +21,16 @@ HGT is crucial in the rapid spread of antibiotic-resistant genes among bacteria,
 
 > ## Know more: Mechanisms of HGT
 > >You can read more about Horizontal Gene Transfer in this [Wikipedia Article](https://en.wikipedia.org/wiki/Horizontal_gene_transfer).
-> > For instance the main mechanisms of HGT are the following:
-> > - **Transformation:** Direct uptake of DNA from the environment.
+> > For instance, the main mechanisms of HGT are the following:
+> > - **Transformation:** Direct DNA uptake from the environment.
 > > - **Transduction:** Transfer of genes by bacteriophages (viruses that infect bacteria).
 > > - **Conjugation:** Transfer of genetic material between bacteria through direct contact, usually via a structure known as a pilus.
 > {: .solution}
 {: .callout}
 
-Topological data analysis (TDA)  allows for identifying complex patterns and structures in large genomic datasets, facilitating the detection 
-of HGT can be a powerful tool for detecting the horizontal transfer of antibiotic resistance genes. 
-TDA.
-
-This approach educates your audience on an important topic in microbiology and public health and introduces them to advanced data analysis techniques that are transforming research in these areas.
-
-### Applying Topological Data Analysis to HGT Detection
-
-After introducing the concept of horizontal gene transfer (HGT) and its significance, we delve into how topological data analysis (TDA), and more specifically persistent homology, offers a sophisticated approach for detecting HGT within bacterial populations.
+Topological data analysis (TDA), in particular persistent homology, allows for 
+identifying complex patterns and structures in large genomic datasets, 
+facilitating the detection of HGT of antibiotic resistance genes. 
 
 **Understanding Persistent Homology in the Context of HGT:**
 - In a population experiencing only horizontal gene transfer, persistent homology applied to genomic data reveals a notable pattern: we observe non-empty homology only at $H_0$, indicating the presence of connected components in the barcode diagram. This is expected because HGT tends to link different genomes, thereby increasing connectivity without necessarily creating higher-dimensional holes.
