@@ -20,6 +20,8 @@ HGT is crucial in the rapid spread of antibiotic-resistant genes among bacteria,
 
 
 > ## Know more: Mechanisms of HGT
+> 
+> >## Extra content
 > >You can read more about Horizontal Gene Transfer in this [Wikipedia Article](https://en.wikipedia.org/wiki/Horizontal_gene_transfer).
 > > For instance, the main mechanisms of HGT are the following:
 > > - **Transformation:** Direct DNA uptake from the environment.
@@ -259,6 +261,13 @@ plot_dendrogram(population_esc_hgt)
 </a>
 
 Now let's calculate the Hamming matrix and persistence.
+> ## Exercise 1: 
+> You are working with genetic data represented by the following list:
+> 
+> > ## Solution
+>>
+> {: .solution}
+{: .challenge}
 
 
 ~~~
