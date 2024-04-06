@@ -35,7 +35,7 @@ Topological data analysis (TDA), in particular persistent homology, allows for
 identifying complex patterns and structures in large genomic datasets, 
 facilitating the detection of HGT of antibiotic resistance genes. 
 
-**Understanding Persistent Homology in the Context of HGT:**
+## Understanding Persistent Homology in the Context of HGT:
 - In a population experiencing only horizontal gene transfer, persistent homology applied to genomic data reveals a notable pattern: we observe non-empty homology only at $H_0$, indicating the presence of connected components in the barcode diagram. This is expected because HGT tends to link different genomes, thereby increasing connectivity without necessarily creating higher-dimensional holes.
 
 **Case Study 1: Vertical Inheritance Simulation:**
