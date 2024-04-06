@@ -343,15 +343,19 @@ visualize_simplicial_complex(simplex_tree_esc_hgt,11)
   <img src="../fig/tda_4_simplicial_esc_11.png" alt="Persistence diagram population with hgt" />
 </a>
 
-## Peristent Homolgy in the _Streptococcus agalactiaea_ genomes
+## Persistent Homolgy in the _Streptococcus agalactiae_ genomes
 In previous sections, we simulated evolution with only 
 vertical gene transfer and applied persistent homology, 
-showcasing the barcode diagram that highlights connected components.
-Then, we simulated HGT and found some 1-holes. Now we show an example 
-involving our population of eight *Streptococcus agalactieae* genomes. 
+showcasing the barcode diagram highlighting connected components.
+Then, we simulated HGT and found some 1-holes. Now, we show an example 
+involving our population of eight _S. agalactiae_ genomes. 
 hopping to observe the emergence of 1-holes in the barcode diagram. This visual and analytical comparison illustrates how HGT introduces complexity into the genomic landscape, detectable through TDA.
 
-By employing TDA and persistent homology, we gain a powerful lens through which to observe and understand the impact of HGT on bacterial genomes. This approach not only underscores the utility of TDA in genomic research but also highlights its potential to uncover intricate gene transfer patterns critical for understanding bacterial evolution and antibiotic resistance.
+By employing TDA and persistent homology, we gain a powerful lens through 
+which to observe and understand the impact of HGT on bacterial genomes. 
+This approach not only underscores the utility of TDA in genomic research but also 
+highlights its potential to uncover intricate gene transfer patterns critical
+for understanding bacterial evolution and antibiotic resistance.
 
 
 > ## Exercise 1: 
