@@ -26,8 +26,9 @@ HGT is crucial in the rapid spread of antibiotic-resistant genes among bacteria,
 > > For instance, the main mechanisms of HGT are the following:
 > > - **Transformation:** Direct DNA uptake from the environment.
 > > - **Transduction:** Transfer of genes by bacteriophages (viruses that infect bacteria).
-> > - **Conjugation:** Transfer of genetic material between bacteria through direct contact, usually via a structure known as a pilus.   
-> {: .solution}  
+> > - **Conjugation:** Transfer of genetic material between bacteria through direct contact, usually via a structure known as a pilus.
+> >   
+>{: .solution}  
 {: .callout}  
 
 Topological data analysis (TDA), in particular persistent homology, allows for 
