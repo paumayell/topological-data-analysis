@@ -451,20 +451,38 @@ strains_names
 
 > ## Exercise 3: 
 > Apply persistent homology and plot the persistence diagram and barcode, 
-> The geometric representation of the simplicial complex for various levels of filtration.
+> <a href="../fig/tda_04_barcode_strep.png">
+>  <img src="../fig/tda_04_barcode_strep.png" alt="Bacode population with hgt" />
+> </a>
+> Which one is the correct answer?
+> 
+> A)
+> ~~~
+> gd.plot_persistence_barcode(persistence3)
+> ~~~
+> {: .language-python}
+> B)
+> ~~~
+> gd.plot_persistence_diagram(persistence3, legend=True)
+> ~~~
+> {: .language-python}
+>
+> C)
 > ~~~
 > gd.plot_persistence_barcode(persistence3, legend=True)
 > ~~~
 > {: .language-python}
-> <a href="../fig/tda_04_barcode_strep.png">
->  <img src="../fig/tda_04_barcode_strep.png" alt="Bacode population with hgt" />
-> </a>
->>
->> something
+>> C)
+>> ~~~
+>> gd.plot_persistence_barcode(persistence3, legend=True)
+>> ~~~
+>> {: .language-python}
 > {: .solution}
 {: .challenge}
 
-> ## Exercise 4: Are the _S_agalaciae_ resistome product of vertical inheritance
+> ## Exercise 4: Are the _S_agalaciae_ resistome product of vertical inheritance?
+> Based on visualization of the simplicial complex at time 270.
+> Which evolutionary processes may be involved in _S. agalactiae_ resistome?
 > ~~~
 > visualize_simplicial_complex(simplex_tree3,270,strains_names)
 > ~~~
@@ -474,17 +492,11 @@ strains_names
 >  <img src="../fig/tda_04_simplicial_270.png" alt="Bacode population with hgt" />
 > </a>
 >>
->> There is a  1-holes in the barcode diagram, so there is preliminary evidence, that this resistome was not aquired only vy vertical inheritance
+>> There is a  1-holes in the barcode diagram, so there is preliminary evidence that this resistome was not acquired only vy vertical inheritance
 >> .
 > {: .solution}
 {: .challenge}
 
-> ## Exercise 4: 
->
->>
->> something
-> {: .solution}
-{: .challenge}
 
 By employing TDA and persistent homology, we gain a powerful lens through 
 which to observe and understand the impact of HGT on bacterial genomes. 
