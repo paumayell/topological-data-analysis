@@ -368,7 +368,7 @@ for understanding bacterial evolution and antibiotic resistance.
 > 
 
 ~~~
-link="/home/jupyter-shaday/Tda_streptococcus/agalactiae_card_full.tsv"
+link="https://raw.githubusercontent.com/carpentries-incubator/topological-data-analysis/gh-pages/files/agalactiae_card_full.tsv"
 # Load the dataframe with the new link
 df_new = pd.read_csv(link, sep='\t')
 # Transpose the dataframe such that column names become row indices and row indices become column names
