@@ -45,7 +45,7 @@ Remember, $ \H_0 $ in the barcode diagram indicates the presence of connected co
 > To learn more about applications of TDA in genomics consult the Rabadan book [Topological Data Analysis for Genomics](https://www.amazon.com.mx/Topological-Data-Analysis-Genomics-Evolution/dp/1107159547) 
 {: .callout}  
 
-Here we will study three study cases, first, we will show persistent homology in vertical inheritance, then we will study a simulation of Horizontal Gene Transfer, and finally, we will study the persistent homology of the resistant genes from *Streptococcus agalactiae* that we obtained in the lesson []()
+Here we will study three study cases, first, we will show persistent homology in vertical inheritance, then we will study a simulation of Horizontal Gene Transfer, and finally, we will study the persistent homology of the resistant genes from *Streptococcus agalactiae* that we obtained in the episode [Annotating Genomic Data](https://carpentries-incubator.github.io/pangenomics/03-annotation-with-Prokka/index.html), from the lesson [Pangenome Analysis in Prokaryotes](https://carpentries-incubator.github.io/pangenomics/index.html).
 
 ### **Library**
 To begin, we will import the necessary packages.
