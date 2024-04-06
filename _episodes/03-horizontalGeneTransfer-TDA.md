@@ -11,6 +11,7 @@ objectives:
 keypoints:
 - "Horizontal Gene Transfer (HGT) is a phenomenon where an organism transfers genetic material to another one that is not its descendant."
 - "1-holes can detect HGT."
+math: true
 ---
 
 ## Introduction to Horizontal Gene Transfer
@@ -32,7 +33,7 @@ HGT is crucial in the rapid spread of antibiotic-resistant genes among bacteria,
 
 
 ## Understanding Persistent Homology in the Context of HGT:
-Topological data analysis (TDA), in particular persistent homology, allows for 
+Topological data analysis (TDA), particularly persistent homology, allows for 
 identifying complex patterns and structures in large genomic datasets, 
 facilitating the detection of HGT of antibiotic resistance genes. Hierarchical 
 data does not have holes in higger dimensions when represented 
@@ -40,9 +41,9 @@ with a Vietoris Rips complex. A population not experiencing horizontal gene tran
 and where no mutations are allowed in the same site show non-empty homology only at $ \H_0 $.
 Remember, $ \H_0 $ in the barcode diagram indicates the presence of connected components.
 
-Here we will study three study cases, 1) we will show persistent homology in 
+Here, we will study  study cases, 1) we will show persistent homology in 
 vertical inheritance, 2) we will study a simulation of Horizontal Gene Transfer, 
-and 3), we will study the persistent homology of the resistant genes 
+and 3)In the exercises, we will calculate the persistent homology of the resistant genes 
 from *Streptococcus agalactiae* that we obtained in the episode [Annotating Genomic Data](https://carpentries-incubator.github.io/pangenomics/03-annotation-with-Prokka/index.html), from the lesson [Pangenome Analysis in Prokaryotes](https://carpentries-incubator.github.io/pangenomics/index.html). In all three cases, we are going to need first 
 to import some libraries, then to define functions, and finally to call them to visualize the data.
 
@@ -106,7 +107,7 @@ def create_complex(distance_matrix):
 ~~~
 {: .language-python}
 
-Function for Visualizing a Cladogram.
+Function `plot_dendrogram` helps visualizing a cladogram.
 ~~~
 #### Function for visualization
 def plot_dendrogram(data):
@@ -118,7 +119,7 @@ def plot_dendrogram(data):
 {: .language-python}
 
 
-The `visualize_simplicial_complex` function creates a graphical representation of a simplicial complex for a given filtration level, based on a simplex tree.
+The `visualize_simplicial_complex` function creates a graphical representation of a simplicial complex for a given filtration level based on a simplex tree. This function is based on what you learned in the [plotting episode](https://carpentries-incubator.github.io/pangenomics-python/04-plotting/index.html) in the lesson [Introduction to Python](https://carpentries-incubator.github.io/pangenomics-python/).
 
 ~~~
 def visualize_simplicial_complex(simplex_tree, filtration_value, vertex_names=None, save_filename=None, plot_size=1, dpi=600, pos=None):
@@ -180,16 +181,23 @@ def visualize_simplicial_complex(simplex_tree, filtration_value, vertex_names=No
 {: .language-python}
 
 
-## Case Study 1: Vertical Inheritance Simulation:
-- We simulate a bacterial population's evolution with exclusively vertical gene transfer (inheritance from parent to offspring). Applying persistent homology to this simulation, we expect a barcode diagram predominantly showing connected components ($ \H_0 $), with little to no evidence of higher-dimensional features. This serves as a baseline for understanding the impact of vertical inheritance on genomic data topology.
+## Case Study 1: Vertical Inheritance in a Simulated Population
+
+We simulate a bacterial population's evolution whos inheritance is exclusively by
+vertical gene transfer (inheritance from parent to offspring). 
+Applying persistent homology to this simulation, we expect a barcode 
+diagram predominantly showing connected components ($ H_0 $), 
+with little to no evidence of higher-dimensional features. 
+This serves as a baseline for understanding the impact of vertical 
+inheritance on genomic data topology.
 
 
-### **Example with a simulated population**
-Next, we proceed to load a numpy array, named population_esc, which contains a resistome of a population with 8 genomes, simulated from a genome with three generations, and in each generation, one genome has 2 offspring. The total number of genes is 505, the initial percentage of 1s is 25%, and the gene gain rate in each generation is 1/505.
-
-**Case Study 2: Introducing Horizontal Gene Transfer:**
-- We then introduce a horizontal gene transfer event within a subgroup of this population and apply TDA to analyze the resulting genomic data. The introduction of HGT is expected to manifest as 1-dimensional holes ($ \H_1 $) in the barcode diagram, distinct from the baseline scenario. These 1-holes indicate the presence of loops or cycles within the data, directly correlating to the HGT events, as they disrupt the simple connectivity pattern seen with vertical inheritance.
-
+We proceed to load a numpy array, named population_esc, 
+which contains a resistome of a population with 8 genomes, 
+simulated from a genome with three generations, 
+and in each generation, one genome has 2 offspring. 
+The total number of genes is 505, the initial percentage of 1s
+is 25%, and the gene gain rate in each generation is 1/505.
 
 ~~~
 population_esc = np.load('/home/jupyter-shaday/GIT/TDA_Horizontal_Genes_Transfer/Notebooks/population_esc.npy')
@@ -219,7 +227,8 @@ plot_dendrogram(population_esc) ##plot dendrogram
 </a>
 
 
-Now, let's observe that this population, which only has vertical inheritance, does not have holes. For this purpose, we use the function we created, `create_complex`, to calculate persistence and the simplex tree.
+Let's observe that this population, which only has vertical inheritance, does not have holes. 
+For this purpose, we use the function we created, `create_complex`, to calculate persistence and the simplex tree.
 
 ~~~
 # Create a Vietoris-Rips complex from the distance matrix, and compute persistent homology.
@@ -243,9 +252,22 @@ gd.plot_persistence_diagram(persistence_esc)
   <img src="../fig/tda_04_persistence_esc.png" alt="Persistence diagram population_esc" />
 </a>
 
-In these plots, we can observe that we only have non-zero Betti numbers for $\beta_0$, indicating that in this population, which only has vertical inheritance, applying persistent homology does not yield 1-holes.
+In these plots, we can observe that we only have non-zero Betti numbers for $\beta_0$,
+indicating that in this population, which only has vertical inheritance, 
+applying persistent homology does not yield 1-holes.
 
-Now, we want to apply persistent homology to a population that includes horizontal gene transfer. To do this, we first import population_esc_hgt, in which we simulated horizontal transfer among a group of 3 genomes sharing a window of 15 genes.
+## Case Study 2: Introducing Horizontal Gene Transfer:
+Now we introduce a horizontal gene transfer event in the simulation.
+within a subgroup of this population and apply TDA to analyze the resulting genomic data. 
+The introduction of HGT is expected to manifest as 1-dimensional holes ($ H_1 $)
+in the barcode diagram, distinct from the baseline scenario. 
+These 1-holes indicate the presence of loops or cycles within the data, 
+directly correlating to the HGT events, as they disrupt the simple 
+connectivity pattern seen with vertical inheritance.
+
+To apply persistent homology to a population that includes horizontal gene 
+transfer we first import population_esc_hgt, in which we simulated horizontal 
+transfer among a group of 3 genomes sharing a window of 15 genes.
 ~~~
 population_esc_hgt = np.load('/home/jupyter-shaday/GIT/TDA_Horizontal_Genes_Transfer/Notebooks/population_esc_hgt.npy')
 population_esc_hgt
@@ -273,14 +295,6 @@ plot_dendrogram(population_esc_hgt)
 </a>
 
 Now let's calculate the Hamming matrix and persistence.
-> ## Exercise 1: 
-> You are working with genetic data represented by the following list:
-> 
-> > ## Solution
->>
-> {: .solution}
-{: .challenge}
-
 
 ~~~
 hamming_matrix_esc_hgt = calculate_hamming_matrix(population_esc_hgt)
@@ -302,7 +316,8 @@ persistence_esc_hgt
 ~~~
 {: .output}
 
-We can see that persistence includes a dimension one. Now, let's visually represent the simplicial complex for a filtration time of 11.
+We can see that persistence includes a dimension one. 
+Now, let's visually represent the simplicial complex for a filtration time of 11.
 ~~~
 gd.plot_persistence_barcode(persistence_esc_hgt)
 gd.plot_persistence_diagram(persistence_esc_hgt)
@@ -328,17 +343,25 @@ visualize_simplicial_complex(simplex_tree_esc_hgt,11)
   <img src="../fig/tda_4_simplicial_esc_11.png" alt="Persistence diagram population with hgt" />
 </a>
 
-
-**Illustrating HGT with Persistent Homology:**
-- To visualize this concept, we'll show an example involving a population of eight *Streptococcus* genomes. Initially, we simulate their evolution with only vertical gene transfer and apply persistent homology, showcasing the barcode diagram that highlights connected components. Next, we simulate HGT events between some of these *Streptococcus* genomes, apply TDA, and observe the emergence of 1-holes in the barcode diagram. This visual and analytical comparison illustrates how HGT introduces complexity into the genomic landscape, detectable through TDA.
+## Peristent Homolgy in the _Streptococcus agalactiaea_ genomes
+In previous sections, we simulated evolution with only 
+vertical gene transfer and applied persistent homology, 
+showcasing the barcode diagram that highlights connected components.
+Then, we simulated HGT and found some 1-holes. Now we show an example 
+involving our population of eight *Streptococcus agalactieae* genomes. 
+hopping to observe the emergence of 1-holes in the barcode diagram. This visual and analytical comparison illustrates how HGT introduces complexity into the genomic landscape, detectable through TDA.
 
 By employing TDA and persistent homology, we gain a powerful lens through which to observe and understand the impact of HGT on bacterial genomes. This approach not only underscores the utility of TDA in genomic research but also highlights its potential to uncover intricate gene transfer patterns critical for understanding bacterial evolution and antibiotic resistance.
 
 
-
-### **Example with data from Streptococuss**
-
-Importamos los 
+> ## Exercise 1: 
+>  Dataframes
+> 
+> > ## Solution
+>>
+> {: .solution}
+{: .challenge}
+> 
 
 ~~~
 link="/home/jupyter-shaday/Tda_streptococcus/agalactiae_card_full.tsv"
@@ -363,7 +386,7 @@ agalactiae_NEM316	1	0	1	0	1	1	1	1	1	1
 ~~~
 {: .output}
 
-Extraemos los valores del dataframe
+Lets stract the values from the dataframe.
 ~~~
 valores=df_transposed_new.iloc[:,:].values
 ~~~
@@ -378,8 +401,8 @@ array([[1, 1, 1, ..., 1, 1, 1],
        [1, 0, 1, ..., 1, 1, 1]])
 ~~~
 {: .output}
-We extract the names of the Strains from the table.
 
+We extract the names of the Strains from the table.
 ~~~
 strains=list(df_transposed_new.index)
 strains_names = [s.replace('agalactiae_', '') for s in strains]
@@ -391,10 +414,20 @@ strains_names
 ~~~
 {: .output}
 
-we apply persistent homology and plot the persistence diagram and barcode, as well as the geometric representation of the simplicial complex for various levels of filtration.
+> ## Exercise 1: 
+> Apply persistent homology and plot the persistence diagram and barcode, 
+> ~~~
+> hamming_matrix_3 = calculate_hamming_matrix(valores)
+> persistence3, simplex_tree3 = create_complex(hamming_matrix_3)
+> persistence3
+> ~~~
+> {: .language-python}
+> > ## Solution
+>>
+> {: .solution}
+{: .challenge}
+
 ~~~
-hamming_matrix_3 = calculate_hamming_matrix(valores)
-persistence3, simplex_tree3 = create_complex(hamming_matrix_3)
 persistence3
 ~~~
 {: .language-python}
@@ -412,11 +445,9 @@ persistence3
 {: .output}
 
 
-
+We as well as the geometric representation of the simplicial complex for various levels of filtration.
 ~~~
-
 gd.plot_persistence_barcode(persistence3, legend=True)
-
 ~~~
 {: .language-python}
 
