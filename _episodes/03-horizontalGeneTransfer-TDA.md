@@ -20,11 +20,12 @@ HGT is crucial in the rapid spread of antibiotic-resistant genes among bacteria,
 
 
 > ## Know more: Mechanisms of HGT
-> You can read more about Horizontal Gene Transfer in this [Wikipedia Article](https://en.wikipedia.org/wiki/Horizontal_gene_transfer).
-> For instance the main mechanisms of HGT are the following:
-> - **Transformation:** Direct uptake of DNA from the environment.
-> - **Transduction:** Transfer of genes by bacteriophages (viruses that infect bacteria).
-> - **Conjugation:** Transfer of genetic material between bacteria through direct contact, usually via a structure known as a pilus.
+> >You can read more about Horizontal Gene Transfer in this [Wikipedia Article](https://en.wikipedia.org/wiki/Horizontal_gene_transfer).
+> > For instance the main mechanisms of HGT are the following:
+> > - **Transformation:** Direct uptake of DNA from the environment.
+> > - **Transduction:** Transfer of genes by bacteriophages (viruses that infect bacteria).
+> > - **Conjugation:** Transfer of genetic material between bacteria through direct contact, usually via a structure known as a pilus.
+> {: .solution}
 {: .callout}
 
 Topological data analysis (TDA)  allows for identifying complex patterns and structures in large genomic datasets, facilitating the detection 
