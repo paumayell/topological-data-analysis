@@ -20,6 +20,9 @@ HGT is crucial in the rapid spread of antibiotic-resistant genes among bacteria,
 
 
 **Mechanisms of HGT:**
+> ## Know more
+> If you want to read more on pangenomics go to the book [The Pangenome](https://link.springer.com/book/10.1007/978-3-030-38281-0) edited for Tettelin.
+{: .callout}
 - **Transformation:** Direct uptake of DNA from the environment.
 - **Transduction:** Transfer of genes by bacteriophages (viruses that infect bacteria).
 - **Conjugation:** Transfer of genetic material between bacteria through direct contact, usually via a structure known as a pilus.
