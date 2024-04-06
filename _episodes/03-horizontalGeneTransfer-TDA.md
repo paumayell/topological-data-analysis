@@ -9,23 +9,23 @@ objectives:
 - "Construct a median complex to detect 1-holes"
 - "Entender que lo árboles jerárquicos no tienen 1-holes"
 keypoints:
-- "Horizontal Gene Transfer (HGT) is a phenomenon where an organism transfers genetic material to another one that it's not its descendent."
-- "HGT can be detected by 1-holes."
+- "Horizontal Gene Transfer (HGT) is a phenomenon where an organism transfers genetic material to another one that is not its descendant."
+- "1-holes can detect HGT."
 ---
 
 ## Introduction to Horizontal Gene Transfer
-Horizontal gene transfer (HGT) is a process through which organisms transfer genetic material to each other in a non-traditional way, without sexual reproduction. This phenomenon is particularly common among bacteria. Unlike vertical gene transfer, where genetic material is inherited from parents to offspring, HGT allows bacteria to acquire new genes directly from other organisms, potentially even from different species.
+Horizontal gene transfer (HGT) is a process through which organisms transfer genetic material to each other in a non-traditional way without sexual reproduction. This phenomenon is particularly common among bacteria. Unlike vertical gene transfer, where genetic material is inherited from parents to offspring, HGT allows bacteria to acquire new genes directly from other organisms, potentially even from different species.
 
 HGT is crucial in the rapid spread of antibiotic-resistant genes among bacteria, enabling them to quickly adapt to new environments and survive in the presence of antibiotics. Antibiotic resistance genes can be located on plasmids, small DNA molecules that can be easily transferred between bacteria, accelerating the spread of resistance. The horizontal transfer of antibiotic-resistance genes poses a significant challenge to global public health. It leads to the development and spread of "superbugs" resistant to multiple antibiotics, complicating the treatment of common infections and increasing mortality.
 
 
-**Mechanisms of HGT:**
-> ## Know more
-> If you want to read more on pangenomics go to the book [The Pangenome](https://link.springer.com/book/10.1007/978-3-030-38281-0) edited for Tettelin.
+> ## Know more: Mechanisms of HGT
+> You can read more about Horizontal Gene Transfer in this [Wikipedia Article](https://en.wikipedia.org/wiki/Horizontal_gene_transfer).
+> For instance the main mechanisms of HGT are the following:
+> - **Transformation:** Direct uptake of DNA from the environment.
+> - **Transduction:** Transfer of genes by bacteriophages (viruses that infect bacteria).
+> - **Conjugation:** Transfer of genetic material between bacteria through direct contact, usually via a structure known as a pilus.
 {: .callout}
-- **Transformation:** Direct uptake of DNA from the environment.
-- **Transduction:** Transfer of genes by bacteriophages (viruses that infect bacteria).
-- **Conjugation:** Transfer of genetic material between bacteria through direct contact, usually via a structure known as a pilus.
 
 Topological data analysis (TDA)  allows for identifying complex patterns and structures in large genomic datasets, facilitating the detection 
 of HGT can be a powerful tool for detecting the horizontal transfer of antibiotic resistance genes. 
