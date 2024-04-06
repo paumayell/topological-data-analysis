@@ -356,7 +356,7 @@ other processes could be involved.
 
 > ## Exercise 1: Manipulating dataframes
 >  Dataframes
->  Ask [ChatPGT]() or consult [stack over flow]() about the following dataframes functions
+>  Ask [ChatPGT](https://chat.openai.com/) or consult [stack over flow](https://stackoverflow.com/) about the following dataframe functions
 > 1) how to load data in dataframe from a link
 > 2) How to transpose a dataframe
 > > ## Solution
@@ -393,7 +393,7 @@ agalactiae_NEM316	1	0	1	0	1	1	1	1	1	1
 
 Now, we will obtained the values from the dataframe.
 ~~~
-valores=df_transposed_new.iloc[:,:].values
+values=df_transposed_new.iloc[:,:].values
 ~~~
 {: .language-python}
 ~~~
@@ -407,7 +407,7 @@ array([[1, 1, 1, ..., 1, 1, 1],
 ~~~
 {: .output}
 
-And now we extract the names of the Strains from the table.
+Now, we extract the names of the Strains from the table.
 ~~~
 strains=list(df_transposed_new.index)
 strains_names = [s.replace('agalactiae_', '') for s in strains]
@@ -421,61 +421,73 @@ strains_names
 
 > ## Exercise 2: 
 > Apply persistent homology and plot the persistence diagram and barcode, 
+> Fill in the blanks
+> hamming_matrix_3, values, calculate_hamming_matrix, create_complex,
+>
 > ~~~
-> hamming_matrix_3 = calculate_hamming_matrix(valores)
-> persistence3, simplex_tree3 = create_complex(hamming_matrix_3)
+> hamming_matrix_3 = __________(_____)
+> persistence3, simplex_tree3 = ________(_______)
 > persistence3
 > ~~~
 > {: .language-python}
 > > ## Solution
+>> hamming_matrix_3 = calculate_hamming_matrix(values)
+>> persistence3, simplex_tree3 = create_complex(hamming_matrix_3)
+>> ~~~
+>>[(1, (268.0, 280.0)),
+>> (0, (0.0, inf)),
+>> (0, (0.0, 290.0)),
+>> (0, (0.0, 272.0)),
+>> (0, (0.0, 264.0)),
+>> (0, (0.0, 263.0)),
+>> (0, (0.0, 258.0)),
+>> (0, (0.0, 248.0)),
+>> (0, (0.0, 164.0))]
+>> ~~~
+>> {: .output}
 >>
 > {: .solution}
 {: .challenge}
 
-~~~
-persistence3
-~~~
-{: .language-python}
-~~~
-[(1, (268.0, 280.0)),
- (0, (0.0, inf)),
- (0, (0.0, 290.0)),
- (0, (0.0, 272.0)),
- (0, (0.0, 264.0)),
- (0, (0.0, 263.0)),
- (0, (0.0, 258.0)),
- (0, (0.0, 248.0)),
- (0, (0.0, 164.0))]
-~~~
-{: .output}
+> ## Exercise 3: 
+> Apply persistent homology and plot the persistence diagram and barcode, 
+> The geometric representation of the simplicial complex for various levels of filtration.
+> ~~~
+> gd.plot_persistence_barcode(persistence3, legend=True)
+> ~~~
+> {: .language-python}
+> <a href="../fig/tda_04_barcode_strep.png">
+>  <img src="../fig/tda_04_barcode_strep.png" alt="Bacode population with hgt" />
+> </a>
+>>
+>> something
+> {: .solution}
+{: .challenge}
 
+> ## Exercise 4: Are the _S_agalaciae_ resistome product of vertical inheritance
+> ~~~
+> visualize_simplicial_complex(simplex_tree3,270,strains_names)
+> ~~~
+> {: .language-python}
+>
+> <a href="../fig/tda_04_simplicial_270.png">
+>  <img src="../fig/tda_04_simplicial_270.png" alt="Bacode population with hgt" />
+> </a>
+>>
+>> There is a  1-holes in the barcode diagram, so there is preliminary evidence, that this resistome was not aquired only vy vertical inheritance
+>> .
+> {: .solution}
+{: .challenge}
 
-The geometric representation of the simplicial complex for various levels of filtration.
-~~~
-gd.plot_persistence_barcode(persistence3, legend=True)
-~~~
-{: .language-python}
-
-<a href="../fig/tda_04_barcode_strep.png">
-  <img src="../fig/tda_04_barcode_strep.png" alt="Bacode population with hgt" />
-</a>
-
-~~~
-
-visualize_simplicial_complex(simplex_tree3,270,strains_names)
-
-~~~
-{: .language-python}
-
-<a href="../fig/tda_04_simplicial_270.png">
-  <img src="../fig/tda_04_simplicial_270.png" alt="Bacode population with hgt" />
-</a>
-
-
-hopping to observe the emergence of 1-holes in the barcode diagram. This visual and analytical comparison illustrates how HGT introduces complexity into the genomic landscape, detectable through TDA.
+> ## Exercise 4: 
+>
+>>
+>> something
+> {: .solution}
+{: .challenge}
 
 By employing TDA and persistent homology, we gain a powerful lens through 
 which to observe and understand the impact of HGT on bacterial genomes. 
 This approach not only underscores the utility of TDA in genomic research but also 
-highlights its potential to uncover intricate gene transfer patterns critical
+highlights its potential to uncover intricate gene transfer patterns that are critical
 for understanding bacterial evolution and antibiotic resistance.
