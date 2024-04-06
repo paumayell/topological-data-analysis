@@ -255,7 +255,7 @@ In these plots, we can observe that we only have non-zero Betti numbers for $\be
 indicating that in this population, which only has vertical inheritance, 
 applying persistent homology does not yield 1-holes.
 
-## Case Study 2: Introducing Horizontal Gene Transfer:
+## Case Study 2: Introducing Horizontal Gene Transfer
 Now, we introduce a horizontal gene transfer event in the simulation.
 within a subgroup of this population and apply TDA to analyze the resulting genomic data. 
 The introduction of HGT is expected to manifest as 1-dimensional holes ($ H_1 $)
@@ -332,7 +332,9 @@ gd.plot_persistence_diagram(persistence_esc_hgt)
   <img src="../fig/tda_04_persistence_esc_hgt.png" alt="Persistence diagram population with hgt" />
 </a>
 
-We have a 1-hole that is born at a distance of 11 and disappears at 14. Now, let's geometrically visualize the simplicial complex for a filtration time of 11.
+We have a 1-hole born at a distance of 11 and disappears at 14. 
+Let's geometrically visualize the simplicial complex for a filtration time 11.
+
 ~~~
 visualize_simplicial_complex(simplex_tree_esc_hgt,11)
 ~~~
@@ -343,29 +345,29 @@ visualize_simplicial_complex(simplex_tree_esc_hgt,11)
 </a>
 
 ## Persistent Homolgy in the _Streptococcus agalactiae_ genomes
-In previous sections, we simulated evolution with only 
+In previous sections, we simulated evolution with  
 vertical gene transfer and applied persistent homology, 
 showcasing the barcode diagram highlighting connected components.
-Then, we simulated HGT and found some 1-holes. Now, we show an example 
-involving our population of eight _S. agalactiae_ genomes. 
-hopping to observe the emergence of 1-holes in the barcode diagram. This visual and analytical comparison illustrates how HGT introduces complexity into the genomic landscape, detectable through TDA.
+Then, in our second example, we simulated HGT and found some 1-holes. 
+Now, we show an example involving our population of eight _S. agalactiae_ genomes.
+We want to investigate whether the resistance genes present in the 
+first pangenome of _S. agalactiae_ are the product of vertical inheritance, or
+other processes could be involved.
 
-By employing TDA and persistent homology, we gain a powerful lens through 
-which to observe and understand the impact of HGT on bacterial genomes. 
-This approach not only underscores the utility of TDA in genomic research but also 
-highlights its potential to uncover intricate gene transfer patterns critical
-for understanding bacterial evolution and antibiotic resistance.
-
-
-> ## Exercise 1: 
+> ## Exercise 1: Manipulating dataframes
 >  Dataframes
-> 
+>  Ask [ChatPGT]() or consult [stack over flow]() about the following dataframes functions
+> 1) how to load data in dataframe from a link
+> 2) How to transpose a dataframe
 > > ## Solution
->>
+>> 1) pd.read_csv
+>> 2) dataframe.T
 > {: .solution}
 {: .challenge}
 > 
 
+Firs we will read the _S. agalactiae_ resistance genes that 
+we obtained in the episode [Annotating Genomic Data](https://carpentries-incubator.github.io/pangenomics/03-annotation-with-Prokka/index.html), from the lesson [Pangenome Analysis in Prokaryotes](https://carpentries-incubator.github.io/pangenomics/index.html). 
 ~~~
 link="https://raw.githubusercontent.com/carpentries-incubator/topological-data-analysis/gh-pages/files/agalactiae_card_full.tsv"
 # Load the dataframe with the new link
@@ -389,7 +391,7 @@ agalactiae_NEM316	1	0	1	0	1	1	1	1	1	1
 ~~~
 {: .output}
 
-Lets stract the values from the dataframe.
+Now, we will obtained the values from the dataframe.
 ~~~
 valores=df_transposed_new.iloc[:,:].values
 ~~~
@@ -405,7 +407,7 @@ array([[1, 1, 1, ..., 1, 1, 1],
 ~~~
 {: .output}
 
-We extract the names of the Strains from the table.
+And now we extract the names of the Strains from the table.
 ~~~
 strains=list(df_transposed_new.index)
 strains_names = [s.replace('agalactiae_', '') for s in strains]
@@ -417,7 +419,7 @@ strains_names
 ~~~
 {: .output}
 
-> ## Exercise 1: 
+> ## Exercise 2: 
 > Apply persistent homology and plot the persistence diagram and barcode, 
 > ~~~
 > hamming_matrix_3 = calculate_hamming_matrix(valores)
@@ -448,7 +450,7 @@ persistence3
 {: .output}
 
 
-We as well as the geometric representation of the simplicial complex for various levels of filtration.
+The geometric representation of the simplicial complex for various levels of filtration.
 ~~~
 gd.plot_persistence_barcode(persistence3, legend=True)
 ~~~
@@ -468,3 +470,12 @@ visualize_simplicial_complex(simplex_tree3,270,strains_names)
 <a href="../fig/tda_04_simplicial_270.png">
   <img src="../fig/tda_04_simplicial_270.png" alt="Bacode population with hgt" />
 </a>
+
+
+hopping to observe the emergence of 1-holes in the barcode diagram. This visual and analytical comparison illustrates how HGT introduces complexity into the genomic landscape, detectable through TDA.
+
+By employing TDA and persistent homology, we gain a powerful lens through 
+which to observe and understand the impact of HGT on bacterial genomes. 
+This approach not only underscores the utility of TDA in genomic research but also 
+highlights its potential to uncover intricate gene transfer patterns critical
+for understanding bacterial evolution and antibiotic resistance.
