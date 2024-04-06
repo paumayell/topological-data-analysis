@@ -34,20 +34,23 @@ HGT is crucial in the rapid spread of antibiotic-resistant genes among bacteria,
 ## Understanding Persistent Homology in the Context of HGT:
 Topological data analysis (TDA), in particular persistent homology, allows for 
 identifying complex patterns and structures in large genomic datasets, 
-facilitating the detection of HGT of antibiotic resistance genes. 
-
-Hierarchical data does not have holes in higger dimensions when represented 
+facilitating the detection of HGT of antibiotic resistance genes. Hierarchical 
+data does not have holes in higger dimensions when represented 
 with a Vietoris Rips complex. A population not experiencing horizontal gene transfer
 and where no mutations are allowed in the same site show non-empty homology only at $ \H_0 $.
 Remember, $ \H_0 $ in the barcode diagram indicates the presence of connected components.
 
+Here we will study three study cases, 1) we will show persistent homology in 
+vertical inheritance, 2) we will study a simulation of Horizontal Gene Transfer, 
+and 3), we will study the persistent homology of the resistant genes 
+from *Streptococcus agalactiae* that we obtained in the episode [Annotating Genomic Data](https://carpentries-incubator.github.io/pangenomics/03-annotation-with-Prokka/index.html), from the lesson [Pangenome Analysis in Prokaryotes](https://carpentries-incubator.github.io/pangenomics/index.html). In all three cases, we are going to need first 
+to import some libraries, then to define functions, and finally to call them to visualize the data.
+
 > ## Know more: TDA in genomics
-> To learn more about applications of TDA in genomics consult the Rabadan book [Topological Data Analysis for Genomics](https://www.amazon.com.mx/Topological-Data-Analysis-Genomics-Evolution/dp/1107159547) 
+> To learn more about applications of TDA in genomics, consult the Rabadan book [Topological Data Analysis for Genomics](https://www.amazon.com.mx/Topological-Data-Analysis-Genomics-Evolution/dp/1107159547) 
 {: .callout}  
 
-Here we will study three study cases, first, we will show persistent homology in vertical inheritance, then we will study a simulation of Horizontal Gene Transfer, and finally, we will study the persistent homology of the resistant genes from *Streptococcus agalactiae* that we obtained in the episode [Annotating Genomic Data](https://carpentries-incubator.github.io/pangenomics/03-annotation-with-Prokka/index.html), from the lesson [Pangenome Analysis in Prokaryotes](https://carpentries-incubator.github.io/pangenomics/index.html).
-
-### **Library**
+### Library
 To begin, we will import the necessary packages.
 ~~~
 import numpy as np
