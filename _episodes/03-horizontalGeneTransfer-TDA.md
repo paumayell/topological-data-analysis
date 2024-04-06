@@ -50,7 +50,7 @@ to import some libraries, then to define functions, and finally to call them to 
 > To learn more about applications of TDA in genomics, consult the Rabadan book [Topological Data Analysis for Genomics](https://www.amazon.com.mx/Topological-Data-Analysis-Genomics-Evolution/dp/1107159547) 
 {: .callout}  
 
-### Library
+### Importing Libraries
 To begin, we will import the necessary packages.
 ~~~
 import numpy as np
@@ -67,8 +67,12 @@ import plotly.graph_objects as go
 import plotly.io as pio
 ~~~
 {: .language-python}
-### **Fuctions**
-These functions calculate a Hamming distance matrix from an array where the columns are genes and the rows are genomes.
+
+### Defining Fuctions
+The function `calculate_hamming_matrix` calculates a Hamming distance 
+matrix from an array where the columns are genes and the rows are genomes. 
+The hamming distance counts how many differences are in two strings. 
+We have created several hamming distance functions in the episode functions.
 ~~~
 # Let's assume that "population" is a numpy ndarray with your genomes as rows.
 def calculate_hamming_matrix(population):
