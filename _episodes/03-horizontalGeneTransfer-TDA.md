@@ -420,16 +420,16 @@ strains_names
 {: .output}
 
 > ## Exercise 2: Persistent homology of _S. agalactiae_ resistome
-> Fill in the blanks with the following parameters to calculate the persisten homology of the _S. agalactiae_ resistome
-> hamming_matrix_3, values, calculate_hamming_matrix, create_complex  
+> Fill in the blanks with the following parameters to calculate the persisten homology of the _S. agalactiae_ resistome.    
+> hamming_matrix_3, values, calculate_hamming_matrix, create_complex    
 >
 > ~~~
 > hamming_matrix_3 = __________(_____)
 > persistence3, simplex_tree3 = ________(_______)
 > persistence3
 > ~~~
-> {: .language-python}
-> > ## Solution
+> {: .language-python}  
+> > ## Solution  
 >> hamming_matrix_3 = calculate_hamming_matrix(values)
 >> persistence3, simplex_tree3 = create_complex(hamming_matrix_3)
 >> ~~~
@@ -443,14 +443,14 @@ strains_names
 >> (0, (0.0, 248.0)),
 >> (0, (0.0, 164.0))]
 >> ~~~
->> {: .output}
->>
+>> {: .output}  
+>>  
 > {: .solution}
 {: .challenge}
 
 > ## Exercise 3: Plot the persistent barcode of _S. agalactiae_ resistome
-> PChose the right parameters to plot the persistence diagram of _S. agalactiae_ resistome
-> <a href="../fig/tda_04_barcode_strep.png">
+> PChose the right parameters to plot the persistence diagram of _S. agalactiae_ resistome.  
+> <a href="../fig/tda_04_barcode_strep.png">  
 >  <img src="../fig/tda_04_barcode_strep.png" alt="Bacode population with hgt" />
 > </a>
 > Which one is the correct answer?
@@ -471,7 +471,8 @@ strains_names
 > gd.plot_persistence_barcode(persistence3, legend=True)
 > ~~~
 > {: .language-python}
-> > ## Solution
+>   
+> > ## Solution  
 >> C)
 >> ~~~
 >> gd.plot_persistence_barcode(persistence3, legend=True)
@@ -490,13 +491,14 @@ strains_names
 >
 > <a href="../fig/tda_04_simplicial_270.png">
 >  <img src="../fig/tda_04_simplicial_270.png" alt="Bacode population with hgt" />
-> </a>
-> > ## Solution
+> </a>  
+>   
+> > ## Solution  
 >>
->> There is a  1-holes in the barcode diagram, so there is preliminary evidence that this resistome was not acquired only vy vertical inheritance
->> .
-> {: .solution}
-{: .challenge}
+>> There is a  1-holes in the barcode diagram, so there is preliminary evidence that this resistome was not acquired only via vertical inheritance  
+>> 
+> {: .solution}  
+{: .challenge}  
 
 
 By employing TDA and persistent homology, we gain a powerful lens through 
