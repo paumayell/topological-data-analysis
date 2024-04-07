@@ -429,9 +429,14 @@ strains_names
 > persistence3
 > ~~~
 > {: .language-python}  
-> > ## Solution  
->> hamming_matrix_3 = calculate_hamming_matrix(values)
+> > ## Solution
+> > ~~~
+>> hamming_matrix_3 = calculate_hamming_matrix(values)  
 >> persistence3, simplex_tree3 = create_complex(hamming_matrix_3)
+> > persistance3  
+>> ~~~
+>> {: .language-python}
+>> persistance3 will store this data. 
 >> ~~~
 >>[(1, (268.0, 280.0)),
 >> (0, (0.0, inf)),
@@ -449,7 +454,7 @@ strains_names
 {: .challenge}
 
 > ## Exercise 3: Plot the persistent barcode of _S. agalactiae_ resistome
-> PChose the right parameters to plot the persistence diagram of _S. agalactiae_ resistome.  
+> Chose the right parameters to plot the persistence diagram of _S. agalactiae_ resistome.  
 > <a href="../fig/tda_04_barcode_strep.png">  
 >  <img src="../fig/tda_04_barcode_strep.png" alt="Bacode population with hgt" />
 > </a>
@@ -484,10 +489,10 @@ strains_names
 > ## Exercise 4: Are the _S_agalaciae_ resistome product of vertical inheritance?
 > Based on visualization of the simplicial complex at time 270.
 > Which evolutionary processes may be involved in _S. agalactiae_ resistome?
-> ~~~
+>~~~  
 > visualize_simplicial_complex(simplex_tree3,270,strains_names)
-> ~~~
-> {: .language-python}
+>~~~  
+>{: .language-python}  
 >
 > <a href="../fig/tda_04_simplicial_270.png">
 >  <img src="../fig/tda_04_simplicial_270.png" alt="Bacode population with hgt" />
