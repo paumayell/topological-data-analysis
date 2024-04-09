@@ -1,7 +1,7 @@
 ---
 title: "Detecting horizontal gene transfer"
 teaching: 30
-exercises: 15
+exercises: 30
 questions:
 - "How can I detect HGT with TDA?"
 objectives:
