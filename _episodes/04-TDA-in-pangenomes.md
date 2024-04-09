@@ -1,7 +1,7 @@
 ---
 title: "Persistence Simplices  gives rise to Gene Families"
 teaching: 30
-exercises: 15
+exercises: 20
 questions:
 - "How can I apply TDA to describe Pangenomes?"
 - "How can persistence simplices be related to gene families?"
