@@ -366,7 +366,7 @@ other processes could be involved.
 {: .challenge}
 > 
 
-Firs we will read the _S. agalactiae_ resistance genes that 
+First, we will read the _S. agalactiae_ resistance genes that 
 we obtained in the episode [Annotating Genomic Data](https://carpentries-incubator.github.io/pangenomics/03-annotation-with-Prokka/index.html), from the lesson [Pangenome Analysis in Prokaryotes](https://carpentries-incubator.github.io/pangenomics/index.html). 
 ~~~
 link="https://raw.githubusercontent.com/carpentries-incubator/topological-data-analysis/gh-pages/files/agalactiae_card_full.tsv"
@@ -391,7 +391,7 @@ agalactiae_NEM316	1	0	1	0	1	1	1	1	1	1
 ~~~
 {: .output}
 
-Now, we will obtained the values from the dataframe.
+Now, we will obtain the values from the data frame.
 ~~~
 values=df_transposed_new.iloc[:,:].values
 ~~~
@@ -420,7 +420,7 @@ strains_names
 {: .output}
 
 > ## Exercise 2: Persistent homology of _S. agalactiae_ resistome
-> Fill in the blanks with the following parameters to calculate the persisten homology of the _S. agalactiae_ resistome.    
+> Fill in the blanks with the following parameters to calculate the persistent homology of the _S. agalactiae_ resistome.    
 > hamming_matrix_3, values, calculate_hamming_matrix, create_complex    
 >
 > ~~~
