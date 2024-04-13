@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Topological Data Analysis"
-teaching: 60
-exercises: 30  
+teaching: 25
+exercises: 25  
 questions:
 - "What is topological data analysis?"
 objectives:
@@ -17,7 +17,7 @@ math: true
 Topological data analysis (TDA) is a technique that uses concepts from topology to analyze complex data and find patterns and structures that are not apparent at first glance. This technique is based on constructing a simplicial complex composed of a collection of simple geometric objects called simplices. The topology of this complex is used to analyze and visualize the relationships between the data.
 
 ### Simplex
-A simplex (plural simplices) is a simple geometric object of any dimension (point, line segment, triangle, tetrahedron, etc.). Simplices are used to construct simplicial complexes. In the following figure, some examples of simplices are shown.  
+A simplex (plural simplices) is a simple geometric object of any dimension (point, line segment, triangle, tetrahedron, etc.). Simplices are used to construct simplicial complexes. The following figure shows some examples of simplices.  
 
   <a href="../fig/tda_Vertices.png">
   <img src="../fig/tda_Vertices.png" alt="Example" width="70%" height="auto"/>
