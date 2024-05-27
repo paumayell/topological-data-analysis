@@ -68,7 +68,7 @@ In the following figure, the left panel "a)" is an example of a simplicial compl
  
 Simplicial complexes can be seen simultaneously as geometric/topological spaces (suitable for topological/geometrical inference) and as combinatorial objects (abstract simplicial complexes, suitable for computations).
 
-> ## Exercise 1: Identify the simplices
+> ## Exercise 1(Begginer): Identify the simplices
 >  In the following graph, we have two representations of simplicial complexes.
 >  <a href="../fig/tda_08_exercise_1.png">
   <img src="../fig/tda_08_exercise_1.png" alt="Exercise 1" width="70%" height="auto"/>
@@ -150,7 +150,7 @@ Simplicial homology is a technique used to quantify the topological structure of
 **Betti Numbers:** Betti numbers are numerical invariants that measure the number of connected components and holes in a simplicial complex. Betti-0 ($\beta_0$) counts the number of connected components, while Betti-1 ($\beta_1$) counts the number of one-dimensional holes.
 
 
-> ## Exercise 2:  Identify Betti numbers
+> ## Exercise 2(Begginer):  Identify Betti numbers
 >  In the following graph, we have 2 representations of simplicial complexes.
 >  <a href="../fig/tda_08_exercise_1.png">
   <img src="../fig/tda_08_exercise_1.png" alt="Exercise 1" width="70%" height="auto" />
@@ -196,7 +196,7 @@ In this case, we have 5 levels of filtration. The red color represents the simpl
 Now, to apply persistent homology, we need to vary the parameters associated with the filtration. In the filtration graph, we have 5 distinct steps for the filtered simplicial complex. In each of these steps, we can have a different number of connected components and 1-holes. 
 
 
-> ## Exercise 3:  Calculate the Betti numbers.
+> ## Exercise 3(Intermediate):  Calculate the Betti numbers.
 >  For the filtration shown in Figure 1, calculate the Betti numbers ($\beta_0 $  and $\beta_1$)for each level of the filtration
 > 
 > > ## Solution  
@@ -263,7 +263,7 @@ Steps to use:
 
 
 
-> ## Exercise 4: Using the app example
+> ## Exercise 4(Advanced): Using the app example
 >
 > Using the application, answer the following questions:
 >  
