@@ -354,7 +354,7 @@ We want to investigate whether the resistance genes present in the
 first pangenome of _S. agalactiae_ are the product of vertical inheritance, or
 other processes could be involved.
 
-> ## Exercise 1: Manipulating dataframes
+> ## Exercise 1(Begginer): Manipulating dataframes
 >  Dataframes
 >  Ask [ChatPGT](https://chat.openai.com/) or consult [stack over flow](https://stackoverflow.com/) about the following dataframe functions
 > 1) how to load data in dataframe from a link
@@ -419,7 +419,7 @@ strains_names
 ~~~
 {: .output}
 
-> ## Exercise 2: Persistent homology of _S. agalactiae_ resistome
+> ## Exercise 2(Begginer): Persistent homology of _S. agalactiae_ resistome
 > Fill in the blanks with the following parameters to calculate the persistent homology of the _S. agalactiae_ resistome.    
 > hamming_matrix_3, values, calculate_hamming_matrix, create_complex    
 >
@@ -453,7 +453,7 @@ strains_names
 > {: .solution}
 {: .challenge}
 
-> ## Exercise 3: Plot the persistent barcode of _S. agalactiae_ resistome
+> ## Exercise 3(Begginer): Plot the persistent barcode of _S. agalactiae_ resistome
 > Chose the right parameters to plot the persistence diagram of _S. agalactiae_ resistome.  
 > <a href="../fig/tda_04_barcode_strep.png">  
 >  <img src="../fig/tda_04_barcode_strep.png" alt="Bacode population with hgt" />
@@ -486,7 +486,7 @@ strains_names
 > {: .solution}
 {: .challenge}
 
-> ## Exercise 4: Are the _S_agalaciae_ resistome product of vertical inheritance?
+> ## Exercise 4(Intermediate): Are the _S_agalaciae_ resistome product of vertical inheritance?
 > Based on visualization of the simplicial complex at time 270.
 > Which evolutionary processes may be involved in _S. agalactiae_ resistome?
 >~~~  
