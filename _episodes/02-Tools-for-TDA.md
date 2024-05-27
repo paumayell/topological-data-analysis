@@ -164,7 +164,7 @@ By examining the persistence barcode plot, one can observe the distribution and 
 
 This visualization allows for the identification of significant topological features and their persistence across different scales. It provides insights into the robustness and stability of these features in the dataset, helping to reveal important structural patterns and understand the underlying topology of the data.
 
-> ## Exercise 1: Creating a Manually Filtered Simplicial Complex.
+> ## Exercise 1(Intermediate): Creating a Manually Filtered Simplicial Complex.
 >  In the following graph, we have $K$ a simplicial complex filtered representation of simplicial complexes.
 > <a href="../fig/tda_09_filtracion_ex.png"> 
  <img src="../fig/tda_09_filtracion_ex.png" alt="Exercise 1 Filtration" width="100%" height="auto"/>
@@ -456,7 +456,7 @@ gd.plot_persistence_barcode(diag,legend=True)
 ~~~
 {: .language-python}
 
-> ## Exercise 2: Torus.
+> ## Exercise 2(Intermediate): Torus.
 >  To build a torus using the `tadasets.torus(n=num_points)` function and apply persistent homology.
 > <a href="../fig/tda_09_torus.png">
   <img src="../fig/tda_09_torus.png" alt="Exercise 2 Torus" width="50%" height="auto"/>
