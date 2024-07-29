@@ -354,7 +354,7 @@ We want to investigate whether the resistance genes present in the
 first pangenome of _S. agalactiae_ are the product of vertical inheritance, or
 other processes could be involved.
 
-> ## Exercise 1(Begginer): Manipulating dataframes
+> ## Exercise 1(Beginner): Manipulating dataframes
 >  Dataframes
 >  Ask [ChatPGT](https://chat.openai.com/) or consult [stack over flow](https://stackoverflow.com/) about the following dataframe functions
 > 1) how to load data in dataframe from a link
@@ -419,7 +419,7 @@ strains_names
 ~~~
 {: .output}
 
-> ## Exercise 2(Begginer): Persistent homology of _S. agalactiae_ resistome
+> ## Exercise 2(Beginner): Persistent homology of _S. agalactiae_ resistome
 > Fill in the blanks with the following parameters to calculate the persistent homology of the _S. agalactiae_ resistome.    
 > hamming_matrix_3, values, calculate_hamming_matrix, create_complex    
 >
@@ -453,7 +453,7 @@ strains_names
 > {: .solution}
 {: .challenge}
 
-> ## Exercise 3(Begginer): Plot the persistent barcode of _S. agalactiae_ resistome
+> ## Exercise 3(Beginner): Plot the persistent barcode of _S. agalactiae_ resistome
 > Chose the right parameters to plot the persistence diagram of _S. agalactiae_ resistome.  
 > <a href="../fig/tda_04_barcode_strep.png">  
 >  <img src="../fig/tda_04_barcode_strep.png" alt="Bacode population with hgt" />
