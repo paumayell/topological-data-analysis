@@ -485,7 +485,7 @@ aux_simplex_list.head(4)
 In this data frame, we can see the history of the formation of families (simplices) at the different birth and death times. 
 If we filter at `t_death=2`we can see only the families that we remain with in the end.
 
-> ## Exercise 1(Begginer): Partitioning the pangenome
+> ## Exercise 1(Beginner): Partitioning the pangenome
 > Filter the table by `t_death=2`, at this point in the filtration, which families are in each partition **Core**, **Shell** and **Cloud**? 
 > How many of these are single-copy core families?
 > > ## Solution
@@ -528,7 +528,7 @@ If we filter at `t_death=2`we can see only the families that we remain with in t
 > {: .solution}
 {: .challenge}
 
-> ## Excercise 2(Begginer): Looking for functional families
+> ## Excercise 2(Beginner): Looking for functional families
 > In the episode [Measuring Sequence Similarity](https://carpentries-incubator.github.io/pangenomics/04-sequence_distance/index.html) we saw that the genes 2603V|GBPINHCM_01420, 515|LHMFJANI_01310, A909|MGIDGNCP_01408, and  NEM316|AOGPFIKH_01528 make the
 > functional family 30S ribosomal protein. Look for these genes in the `aux_simplex_list`. Are they in the same family? Are there other genes in this family?
 >
