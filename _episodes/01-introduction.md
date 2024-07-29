@@ -68,7 +68,7 @@ In the following figure, the left panel "a)" is an example of a simplicial compl
  
 Simplicial complexes can be seen simultaneously as geometric/topological spaces (suitable for topological/geometrical inference) and as combinatorial objects (abstract simplicial complexes, suitable for computations).
 
-> ## Exercise 1(Begginer): Identify the simplices
+> ## Exercise 1(Beginner): Identify the simplices
 >  In the following graph, we have two representations of simplicial complexes.
 >  <a href="../fig/tda_08_exercise_1.png">
   <img src="../fig/tda_08_exercise_1.png" alt="Exercise 1" width="70%" height="auto"/>
@@ -150,7 +150,7 @@ Simplicial homology is a technique used to quantify the topological structure of
 **Betti Numbers:** Betti numbers are numerical invariants that measure the number of connected components and holes in a simplicial complex. Betti-0 ($\beta_0$) counts the number of connected components, while Betti-1 ($\beta_1$) counts the number of one-dimensional holes.
 
 
-> ## Exercise 2(Begginer):  Identify Betti numbers
+> ## Exercise 2(Beginner):  Identify Betti numbers
 >  In the following graph, we have 2 representations of simplicial complexes.
 >  <a href="../fig/tda_08_exercise_1.png">
   <img src="../fig/tda_08_exercise_1.png" alt="Exercise 1" width="70%" height="auto" />
