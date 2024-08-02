@@ -456,8 +456,9 @@ gd.plot_persistence_barcode(diag,legend=True)
 ~~~
 {: .language-python}
 
-> ## Exercise 2(Intermediate): Torus.
->  To build a torus using the `tadasets.torus(n=num_points)` function and apply persistent homology.
+> ## Exercise 2(Intermediate):  Constructing a Torus and Analyzing Persistent Homology.
+> Use the `tadasets.torus(n=num_points)` function to generate a dataset representing a torus. Ensure that `num_points` is an integer specifying the number of points to generate.
+> Once you have generated the torus, apply persistent homology techniques to analyze the topology of the dataset.
 > <a href="../fig/tda_09_torus.png">
   <img src="../fig/tda_09_torus.png" alt="Exercise 2 Torus" width="50%" height="auto"/>
 </a>
@@ -486,7 +487,7 @@ gd.plot_persistence_barcode(diag,legend=True)
 {: .challenge}
 
 > ## FIXME
-> Poner algo más en los keypoints
+> Add something more to the keypoints
 {: .caution}
 
 {% include links.md %}
